@@ -191,9 +191,8 @@ export class CbsClient {
         log.cbs("[%s] Successfully closed the cbs session.", this.connection.id);
       }
     } catch (err) {
-      const msg = `An error occurred while closing the cbs link: ${err.stack || JSON.stringify(err)}.`;
-      log.error("[%s] %s", this.connection.id, msg);
-      throw new Error(msg);
+      log.error("[%s] An error occurred while closing the cbs link: %O", this.connection.id, err);
+      throw err;
     }
   }
 
@@ -210,9 +209,8 @@ export class CbsClient {
         log.cbs("[%s] Successfully removed the cbs session.", this.connection.id);
       }
     } catch (err) {
-      const msg = `An error occurred while removing the cbs link: ${err.stack || JSON.stringify(err)}.`;
-      log.error("[%s] %s", this.connection.id, msg);
-      throw new Error(msg);
+      log.error("[%s] An error occurred while removing the cbs link: %O", this.connection.id, err);
+      throw err;
     }
   }
 
